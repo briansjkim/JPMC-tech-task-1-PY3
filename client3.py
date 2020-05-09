@@ -59,11 +59,14 @@ if __name__ == "__main__":
             QUERY.format(random.random())).read())
 
         """ ----------- Update to get the ratio --------------- """
+        # create a prices dictionary
+        # a dictionary is like a key-value store where you specify a key and be able to retrieve a value
+        prices = {}
         for quote in quotes:
             stock, bid_price, ask_price, price = getDataPoint(quote)
+            prices[stock] = price
+            #  the key is going to be the stock name and the value is its price
             print("Quoted %s at (bid:%s, ask:%s, price:%s)" %
                   (stock, bid_price, ask_price, price))
-            # we create a prices[] dictionary to store stock prices
-            # a dictionary is like a key-value store where you specify a key and be able to retrieve a value
-            # the key is going to be the stock name and the value is its price
+
         print("Ratio %s" % (getRatio(prices['ABC'], prices['DEF'])))
