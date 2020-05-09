@@ -44,7 +44,7 @@ def getRatio(price_a, price_b):
     """ Get ratio of price_a and price_b """
     """ ------------- Update this function ------------- """
     """ Also create some unit tests for this function in client_test.py """
-    if (price_b === 0):
+    if (price_b == 0):
         # when price_b is 0 avoid throwing ZeroDivisionError
         return
     return price_a/price_b
@@ -63,5 +63,7 @@ if __name__ == "__main__":
             stock, bid_price, ask_price, price = getDataPoint(quote)
             print("Quoted %s at (bid:%s, ask:%s, price:%s)" %
                   (stock, bid_price, ask_price, price))
-
-        print("Ratio %s" % getRatio(price, price))
+            # we create a prices[] dictionary to store stock prices
+            # a dictionary is like a key-value store where you specify a key and be able to retrieve a value
+            # the key is going to be the stock name and the value is its price
+        print("Ratio %s" % (getRatio(prices['ABC'], prices['DEF'])))
