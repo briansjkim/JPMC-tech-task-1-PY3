@@ -29,6 +29,15 @@ class ClientTest(unittest.TestCase):
                 quote['top_bid']['price'] + quote['top_ask']['price']) / 2))
     """ ------------ Add more unit tests ------------ """
 
+    def test_getRatio_returnNoneIfDenominatorIsZero(self):
+        quotes = [
+            {'top_ask': {'price': 119.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453',
+             'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
+        ]
+
+        for quote in quotes:
+            self.assertEqual(getRatio(quote['top_bid']['price'], 0), None)
+
 
 if __name__ == '__main__':
     unittest.main()
